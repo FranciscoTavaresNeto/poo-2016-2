@@ -4,12 +4,12 @@ class Transporte {
   String origem;  // null
   String destino; // null
   // valor padrão R$ 0,00
-  // Moeda  custo = new Moeda(0, 0);   // null
+  Moeda  custo = new Moeda(0, 0);   // null
   int real;
   int centavos;
 
-  // Peso   peso;
-  int gramas;
+  Peso   peso;
+  //int gramas;
 
   // construtor
   Transporte(String origem, String destino) {
