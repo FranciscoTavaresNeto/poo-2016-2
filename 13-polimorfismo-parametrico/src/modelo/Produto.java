@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import persistencia.Persistivel;
 import persistencia.ProdutoDAO;
@@ -85,8 +86,22 @@ public class Produto implements Persistivel {
 
 	@Override
 	public void excluir() {
-		// TODO Auto-generated method stub
-		
+		dao.excluir(codigo);
 	}
+
+	public void carregar(int codigo) {
+		dao.carregar(codigo, this);
+	}
+
+	public void reajustar(double perc) {
+		this.valor = valor * perc + valor;
+	}
+
+	public void atualizar() {
+		dao.atualizar(this);
+	}
+	
+	
+	
 
 }

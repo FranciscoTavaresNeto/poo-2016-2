@@ -8,12 +8,20 @@ CREATE TABLE produtos (
 	valor          DECIMAL(9, 2),
 	prazo_validade DATE,
 	disponivel     BOOLEAN,
-	tipo           INTEGER
+	tipo           INTEGER,
+	ativo          BOOLEAN DEFAULT true
 );
 
+/*
 INSERT INTO produtos VALUES (
  99999, 'Panela Inox', 34.12, NULL, TRUE, 2
 );
+*/
+
+-- DELETE FROM produtos 
+-- WHERE codigo = ?
+
+
 
 
 
