@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pessoas</title>
+  </head>
+  <body>
+
+    <h1>Pessoas</h1>
+
+    <hr />
+
+    <button>Carregar ...</button>
+
+    <ul>
+      <li>Rafael Betito</li>
+      <li>Igor Pereira</li>
+    </ul>
+
+
+    <script>
+      var botao = document.querySelector('button');
+      var lista = document.querySelector('ul');
+
+      botao.addEventListener('click', function() {
+
+        var ajax = new XMLHttpRequest();
+        var url = 'http://localhost:4567/pessoas';
+
+        ajax.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var pessoas = JSON.parse(this.responseText);
+            for (var i = 0; i < pessoas.length; i++) {
+              var li = document.createElement('li');
+              li.innerHTML =
+                pessoas[i].nome + ' ' + pessoas[i].sobrenome;
+              lista.appendChild(li);
+            }
+          }
+        }
+
+        ajax.open('GET', url);
+        ajax.send();
+
+
+
+      });
+    </script>
+  </body>
+</html>
